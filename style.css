@@ -1,0 +1,84 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: roboto, sans-serif;
+  background-color: #e4e4e7;
+  color: white;
+}
+
+#header {
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)) , url('img/header.jpg');
+  height: 40vh;
+  background-position: center;
+  background-size: cover;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+#header > h1 {
+  position: absolute;
+  font-size: 2.5em;
+}
+
+#header-buttons {
+  margin-top: auto;
+  margin-bottom: 1.9em;
+  display: flex;
+  gap: 1em;
+}
+
+#container {
+  padding: 2em 3em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.button {
+  border: none;
+  color: white;
+  font-family: inherit;
+  background-color: #18181b;
+  padding: 1em;
+  font-size: .9em;
+}
+
+.book {
+  background-color: #27272a;
+  display: flex;
+  gap: 1em;
+  padding: 1em 10em;
+  align-items: center;
+  justify-content: center;
+
+  min-width: min-content;
+}
+
+.book-icon {
+  height: 30px;
+  width: auto;
+  border-radius: .5em;
+}
+
+.book-title {
+  font-weight: bold;
+}
+
+
+@media only screen and (max-width: 768px) {
+  .book {
+    flex-direction: column;
+    padding: 1em 5em;
+  }
+  .book-icon {
+    height: 60px;
+    width: auto;
+  }
+}
