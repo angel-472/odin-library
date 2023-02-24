@@ -6,7 +6,7 @@
 
 body {
   font-family: roboto, sans-serif;
-  background-color: #e4e4e7;
+  background-color: #1b1b21;
   color: white;
 }
 
@@ -48,37 +48,132 @@ body {
   background-color: #18181b;
   padding: 1em;
   font-size: .9em;
+  cursor: pointer;
+}
+
+#books {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
 }
 
 .book {
   background-color: #27272a;
   display: flex;
   gap: 1em;
-  padding: 1em 10em;
+  padding: 1em 2em;
   align-items: center;
-  justify-content: center;
-
   min-width: min-content;
+  width: 60vw;
+  text-align: center;
 }
 
 .book-icon {
   height: 30px;
   width: auto;
-  border-radius: .5em;
+  border-radius: .3em;
+}
+
+.book-info {
+  display: flex;
+  flex-direction: inherit;
+  gap: .5em;
+}
+
+.book > p {
+  overflow-x: hidden;
 }
 
 .book-title {
   font-weight: bold;
 }
 
+.book-author {
+  color: #d4d4d8;
+}
 
+.book-buttons {
+  margin-left: auto;
+  display: flex;
+  gap: 1em;
+}
+
+.book-buttons > button {
+  width: 100px;
+  padding: .5em;
+  font-weight: bold;
+  border-radius: .5em;
+}
+
+.button-status {
+  background-color: #3c99d6;
+}
+
+.button-status.status-1 {
+  background-color: #c8b235;
+}
+
+.button-status.status-2 {
+  background-color: #1ea773;
+}
+
+.button-remove {
+  background-color: #d63c3c;
+}
+
+
+/* mobile */
 @media only screen and (max-width: 768px) {
   .book {
     flex-direction: column;
-    padding: 1em 5em;
+    padding: 1em 3em;
   }
   .book-icon {
     height: 60px;
     width: auto;
   }
+  .book-buttons {
+    margin-left: 0px;
+  }
+}
+
+#book-editor {
+  z-index: 100;
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  display: none;
+
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5));
+}
+
+#book-editor-container {
+  background-color: #27272a;
+  padding: 2em 3em;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+#book-editor-header {
+  font-weight: bold;
+  font-size: 1.5em;
+}
+
+#book-editor-buttons {
+  display: flex;
+  gap: 1em;
+}
+
+#book-editor-container input {
+  height: 35px;
+  width: 300px;
+  border: none;
+  background-color: #e2e8f0;
+  padding: 1em;
+  border-radius: 1em;
 }
