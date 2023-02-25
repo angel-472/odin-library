@@ -1,10 +1,13 @@
 const btnAddBook = document.getElementById("add-book");
-const btnEditorSave = document.getElementById("book-editor-save");
-const btnEditorClose = document.getElementById("book-editor-close");
-const bookEditor = document.getElementById("book-editor")
 const booksContainer = document.getElementById("books");
 
-const books = {};
+const btnEditorSave = document.getElementById("book-editor-save");
+const btnEditorClose = document.getElementById("book-editor-close");
+const bookEditor = document.getElementById("book-editor");
+const txtEditorTitle = document.getElementById("book-editor-title");
+const txtEditorAuthor = document.getElementById("book-editor-author");
+
+let books = {};
 const statuses = {
   0: 'Unread',
   1: 'Reading',
@@ -13,23 +16,33 @@ const statuses = {
 
 btnAddBook.addEventListener("click", (e) => {
   bookEditor.style.display = "flex";
+
+  //resets inputs
+  txtEditorTitle.value = "";
+  txtEditorAuthor.value = "";
 });
 btnEditorSave.addEventListener("click", (e) => {
-
+  let title = txtEditorTitle.value;
+  let author = txtEditorAuthor.value;
+  bookEditor.style.display = "none";
+  if(title == "" || author == ""){
+    return;
+  }
+  addBookToLibrary(title,author,0);
 });
 btnEditorClose.addEventListener("click", (e) => {
   bookEditor.style.display = "none";
 });
 
-function Book(title, author){
+function Book(title, author, status){
   this.id = crypto.randomUUID();
   this.title = title;
   this.author = author;
-  this.status = 0;
+  this.status = status;
 }
 
-function addBookToLibrary(title, author){
-  let book = new Book(title,author);
+function addBookToLibrary(title, author, status){
+  let book = new Book(title,author,status);
   books[book.id] = book;
   let element = getNewBookElement(book);
   booksContainer.appendChild(element);
@@ -75,3 +88,18 @@ document.addEventListener('click', ({ target }) => {
     }
   }
 });
+
+function saveLocalStorage(){
+  window.localStorage.setItem('library_readinglist', JSON.stringify(books));
+}
+
+function loadLocalStorage(){
+  let savedBooks = JSON.parse(window.localStorage.getItem('library_readinglist'));
+  Object.values(savedBooks).forEach((book) => {
+    addBookToLibrary(book.title, book.author, book.status);
+  });
+}
+
+//runs them
+loadLocalStorage();
+setInterval(() => saveLocalStorage(), 1000);

@@ -151,29 +151,31 @@ body {
 
 #book-editor-container {
   background-color: #27272a;
-  padding: 2em 3em;
+  padding: 2em;
 
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 1rem;
+  border: 4px solid #18181b;
 }
 
 #book-editor-header {
   font-weight: bold;
   font-size: 1.5em;
+  margin-bottom: 1rem;
 }
 
 #book-editor-buttons {
   display: flex;
   gap: 1em;
+  margin-top: 1em;
 }
 
 #book-editor-container input {
   height: 35px;
-  width: 300px;
+  width: 200px;
   border: none;
   background-color: #e2e8f0;
   padding: 1em;
-  border-radius: 1em;
 }

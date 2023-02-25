@@ -4,6 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"> <!--icon library-->
     <script src="script.js" defer></script>
     <title>Library Project</title>
   </head>
@@ -11,7 +12,7 @@
   <body>
     <div id="book-editor">
       <div id="book-editor-container">
-        <p id="book-editor-header">Book Information</p>
+        <p id="book-editor-header">Add Book</p>
         <input type="text" id="book-editor-title" placeholder="Book Title">
         <input type="text" id="book-editor-author" placeholder="Book Author">
         <div id="book-editor-buttons">
@@ -30,6 +31,24 @@
       <div id="books">
       </div>
     </main>
-    <footer id="footer"></footer>
+    <footer id="footer">
+      <i class="fa-brands fa-github"></i>
+      <a href="https://github.com/angel-472">github.com/angel-472</a>
+      <style media="screen">
+          #footer {
+          padding: 1em;
+          color: #d4d4d8;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          gap: 8px;
+        }
+
+        #footer a {
+          color: #d4d4d8;
+          text-decoration: none;
+        }
+      </style>
+    </footer>
   </body>
 </html>
