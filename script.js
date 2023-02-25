@@ -104,3 +104,15 @@ function loadLocalStorage(){
 //runs them
 loadLocalStorage();
 setInterval(() => saveLocalStorage(), 1000);
+
+let noBooks = true;
+const divNoBooks = document.getElementById("no-books");
+//no books div
+setInterval(() => {
+  if(Object.keys(books).length < 1 && divNoBooks.style.display !== 'flex'){
+    divNoBooks.style.display = 'flex';
+  }
+  else if(Object.keys(books).length > 0 && divNoBooks.style.display !== 'none') {
+    divNoBooks.style.display = 'none';
+  }
+}, 100);

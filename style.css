@@ -180,3 +180,15 @@ body {
   background-color: #e2e8f0;
   padding: 1em;
 }
+
+#no-books {
+  display: none;
+  gap: 1em;
+  padding: 1em 2em;
+  align-items: center;
+  justify-content: center;
+  min-width: min-content;
+  width: 60vw;
+  text-align: center;
+  border: 2px solid white;
+}
