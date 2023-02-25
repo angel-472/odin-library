@@ -94,6 +94,7 @@ function saveLocalStorage(){
 }
 
 function loadLocalStorage(){
+  if(window.localStorage.getItem('library_readinglist') == undefined) return;
   let savedBooks = JSON.parse(window.localStorage.getItem('library_readinglist'));
   Object.values(savedBooks).forEach((book) => {
     addBookToLibrary(book.title, book.author, book.status);
