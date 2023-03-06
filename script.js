@@ -34,11 +34,13 @@ btnEditorClose.addEventListener("click", (e) => {
   bookEditor.style.display = "none";
 });
 
-function Book(title, author, status){
-  this.id = crypto.randomUUID();
-  this.title = title;
-  this.author = author;
-  this.status = status;
+class Book {
+  constructor(title, author, status){
+    this.id = crypto.randomUUID();
+    this.title = title;
+    this.author = author;
+    this.status = status;
+  }
 }
 
 function addBookToLibrary(title, author, status){
