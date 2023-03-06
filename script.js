@@ -1,10 +1,3 @@
-const statuses = {
-  0: 'Unread',
-  1: 'Reading',
-  2: 'Completed',
-}
-
-
 class Book {
   constructor(title, author, status){
     this.id = crypto.randomUUID();
@@ -27,6 +20,12 @@ class LibraryApp {
     this.txtEditorTitle = document.getElementById("book-editor-title");
     this.txtEditorAuthor = document.getElementById("book-editor-author");
     this.divNoBooks = document.getElementById("no-books");
+
+    this.statuses = {
+      0: 'Unread',
+      1: 'Reading',
+      2: 'Completed',
+    }
   }
   init(){
     this.btnAddBook.addEventListener("click", (e) => {
@@ -64,11 +63,11 @@ class LibraryApp {
           else if(target.classList.contains("button-status")){
             console.log("change status book " + bookId);
             let status = book.status;
-            let newStatus = book.status + 1 < Object.keys(statuses).length ? book.status + 1 : 0;
+            let newStatus = book.status + 1 < Object.keys(this.statuses).length ? book.status + 1 : 0;
             target.classList.remove("status-" + book.status);
             target.classList.add("status-" + newStatus);
             book.status = newStatus;
-            target.innerText = statuses[newStatus];
+            target.innerText = this.statuses[newStatus];
           }
         }
       }
@@ -89,7 +88,7 @@ class LibraryApp {
   }
   addBook(title, author, status){
     let book = new Book(title,author,status);
-    books[book.id] = book;
+    this.books[book.id] = book;
     let element = this.getNewBookElement(book);
     this.booksContainer.appendChild(element);
     book.element = element;
@@ -104,7 +103,7 @@ class LibraryApp {
       <p class="book-author">By: ${book.author}</p>
     </div>
     <div class="book-buttons">
-      <button data-book="${book.id}" class="button button-status status-${book.status}">${statuses[book.status]}</button>
+      <button data-book="${book.id}" class="button button-status status-${book.status}">${this.statuses[book.status]}</button>
       <button data-book="${book.id}" class="button button-remove">Remove</button>
     </div>
     `
