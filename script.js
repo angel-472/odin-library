@@ -43,7 +43,7 @@ class LibraryApp {
       if(title == "" || author == ""){
         return;
       }
-      addBookToLibrary(title,author,0);
+      this.addBook(title,author,0);
     });
 
     this.btnEditorClose.addEventListener("click", (e) => {
