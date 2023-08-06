@@ -20,6 +20,7 @@ class LibraryApp {
     this.txtEditorTitle = document.getElementById("book-editor-title");
     this.txtEditorAuthor = document.getElementById("book-editor-author");
     this.divNoBooks = document.getElementById("no-books");
+    this.editorValidationMessage = document.getElementById("book-editor-error-message");
 
     this.statuses = {
       0: 'Unread',
@@ -34,16 +35,22 @@ class LibraryApp {
       //resets inputs
       this.txtEditorTitle.value = "";
       this.txtEditorAuthor.value = "";
+
+      this.editorValidationMessage.style.display = "none";
     });
 
     this.btnEditorSave.addEventListener("click", (e) => {
       let title = this.txtEditorTitle.value;
       let author = this.txtEditorAuthor.value;
-      this.bookEditor.style.display = "none";
       if(title == "" || author == ""){
+        this.editorValidationMessage.textContent = 'Please make sure to fill all fields';
+        this.editorValidationMessage.style.display = 'block';
         return;
       }
-      this.addBook(title,author,0);
+      else {
+        this.bookEditor.style.display = "none";
+        this.addBook(title,author,0);
+      }
     });
 
     this.btnEditorClose.addEventListener("click", (e) => {

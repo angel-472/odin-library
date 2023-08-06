@@ -192,3 +192,9 @@ body {
   text-align: center;
   border: 2px solid white;
 }
+
+#book-editor-error-message {
+  color: #d63c3c;
+  font-size: .8em;
+  display: none;
+}
